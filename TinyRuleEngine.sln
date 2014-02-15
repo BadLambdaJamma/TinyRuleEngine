@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TinyRuleEngineUnitTest", "TinyTuleEngineUnitTest\TinyRuleEngineUnitTest.csproj", "{2618DDDC-DAD6-467B-81EA-2A3E69508476}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TinyRuleEngine", "TinyRuleEngine\TinyRuleEngine.csproj", "{764F6B7C-7391-4BC6-BE30-119F30199D43}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2618DDDC-DAD6-467B-81EA-2A3E69508476}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2618DDDC-DAD6-467B-81EA-2A3E69508476}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2618DDDC-DAD6-467B-81EA-2A3E69508476}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2618DDDC-DAD6-467B-81EA-2A3E69508476}.Release|Any CPU.Build.0 = Release|Any CPU
+		{764F6B7C-7391-4BC6-BE30-119F30199D43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{764F6B7C-7391-4BC6-BE30-119F30199D43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{764F6B7C-7391-4BC6-BE30-119F30199D43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{764F6B7C-7391-4BC6-BE30-119F30199D43}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

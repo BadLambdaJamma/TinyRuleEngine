@@ -1,0 +1,65 @@
+﻿<rules>
+  <rule name="IsGasGuzzler" appliesto="TinyRuleEngineTest.CarDTO">
+    <or>
+      <and>
+        <ruleitem membername="Year" operator="GreaterThanOrEqual" targetvalue="2010"/>
+        <ruleitem membername="Make" operator="Equals" targetvalue="Ford"/>
+      </and>
+      <ruleitem membername="Model" operator="StartsWith" targetvalue="Ex"/>
+    </or>
+  </rule>
+  <rule name="IsGasGuzzler1" appliesto="TinyRuleEngineTest.CarDTO">
+    <or>
+      <and>
+        <ruleitem membername="Year" operator="GreaterThanOrEqual" targetvalue="2010"/>
+        <ruleitem membername="Make" operator="Equals" targetvalue="Ford"/>
+      </and>
+      <ruleitem membername="Model" operator="StartsWith" targetvalue="Ex"/>
+    </or>
+  </rule>
+  <rule name="IsGasGuzzler2" appliesto="TinyRuleEngineTest.CarDTO">
+    <or>
+      <and>
+        <ruleitem membername="Year" operator="GreaterThanOrEqual" targetvalue="2010"/>
+        <ruleitem membername="Make" operator="Equals" targetvalue="Ford"/>
+      </and>
+      <ruleitem membername="Model" operator="StartsWith" targetvalue="Ex"/>
+    </or>
+  </rule>
+  <rule name="IsGasGuzzler3" appliesto="TinyRuleEngineTest.CarDTO">
+    <or>
+      <and>
+        <ruleitem membername="Year" operator="GreaterThanOrEqual" targetvalue="2010"/>
+        <ruleitem membername="Make" operator="Equals" targetvalue="Ford"/>
+      </and>
+      <ruleitem membername="Model" operator="StartsWith" targetvalue="Ex"/>
+    </or>
+  </rule>
+  <rule name="IsGasGuzzler4" appliesto="TinyRuleEngineTest.CarDTO">
+    <or>
+      <and>
+        <ruleitem membername="Year" operator="GreaterThanOrEqual" targetvalue="2010"/>
+        <ruleitem membername="Make" operator="Equals" targetvalue="Ford"/>
+      </and>
+      <ruleitem membername="Model" operator="StartsWith" targetvalue="Ex"/>
+    </or>
+  </rule>
+  <rule name="IsGasGuzzler5" appliesto="TinyRuleEngineTest.CarDTO">
+    <or>
+      <and>
+        <ruleitem membername="Year" operator="GreaterThanOrEqual" targetvalue="2010"/>
+        <ruleitem membername="Make" operator="Equals" targetvalue="Ford"/>
+      </and>
+      <ruleitem membername="Model" operator="StartsWith" targetvalue="Ex"/>
+    </or>
+  </rule>
+  <rule name="IsGasGuzzler6" appliesto="TinyRuleEngineTest.CarDTO">
+    <or>
+      <and>
+        <ruleitem membername="Year" operator="GreaterThanOrEqual" targetvalue="2010"/>
+        <ruleitem membername="Make" operator="Equals" targetvalue="Ford"/>
+      </and>
+      <ruleitem membername="Model" operator="StartsWith" targetvalue="Ex"/>
+    </or>
+  </rule>
+</rules>

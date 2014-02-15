@@ -1,0 +1,15 @@
+﻿<rules>
+  <!-- each rule has to state what part of the tupple it uses.  it can do this with the simple 'uses' notation-->
+  <rule name="FordSaleApproverWithSalesPersonInfo" appliesto="CarDTO|SalesPersonDTO">
+    <or>
+      <and>
+        <ruleitem uses="CarDTO"  membername="Make" operator="StartsWith" targetvalue="Ford"/>
+        <and>
+          <ruleitem uses="SalesPersonDTO"  membername="State" operator="Equals" targetvalue="PA"/>
+          <ruleitem uses="SalesPersonDTO"  membername="IsManager" operator="Equals" targetvalue="true"/>
+        </and>
+      </and>
+      <ruleitem uses="CarDTO" membername="SellingPrice" operator="LessThanOrEqual" targetvalue="10000.0000"/>
+    </or>
+  </rule>
+</rules>
