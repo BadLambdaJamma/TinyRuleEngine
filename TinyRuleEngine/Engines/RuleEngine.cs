@@ -10,12 +10,12 @@ namespace TinyRuleEngine.Engines
     //
     // tiny rule engine -  a basic rule engine for .NET 
     //
-    public static class RuleEngine
+    public class RuleEngine
     {
         /// <summary>
         /// hold a list of rules
         /// </summary>
-        private static readonly Dictionary<string, object> Rules =  new Dictionary<string,object>();
+        private readonly Dictionary<string, object> Rules =  new Dictionary<string,object>();
 
         /// <summary>
         /// compile a rule
@@ -23,7 +23,7 @@ namespace TinyRuleEngine.Engines
         /// <typeparam name="T">the type to compile the rule against</typeparam>
         /// <param name="r">The rule</param>
         /// <returns>A Func to the method</returns>
-        static public Func<T, bool> Compile<T>(Rule r)
+        public Func<T, bool> Compile<T>(Rule r)
         {
             var param = Expression.Parameter(typeof(T));
             Expression expr = BuildExpression(r, param);
@@ -36,7 +36,7 @@ namespace TinyRuleEngine.Engines
         /// <typeparam name="T">The type the rule is matched to</typeparam>
         /// <param name="r">the rule</param>
         /// <returns>An Expression tree of Func"/></returns>
-        static public Expression<Func<T, bool>> GetExpression<T>(Rule r)
+        public Expression<Func<T, bool>> GetExpression<T>(Rule r)
         {
             var param = Expression.Parameter(typeof(T));
             Expression expr = BuildExpression(r, param);
@@ -74,7 +74,7 @@ namespace TinyRuleEngine.Engines
         /// <typeparam name="T"></typeparam>
         /// <param name="ruleKey"></param>
         /// <param name="rule"></param>
-        public static void LoadRule<T>(string ruleKey, Expression<Func<T, bool>> rule)
+        public void LoadRule<T>(string ruleKey, Expression<Func<T, bool>> rule)
         {
             Rules.Add(ruleKey, rule);
         }
@@ -85,7 +85,7 @@ namespace TinyRuleEngine.Engines
         /// <typeparam name="T"></typeparam>
         /// <param name="fileName"></param>
         /// <param name="nodePath"></param>
-        public static void LoadRulesFromFile<T>(string  fileName, string nodePath)
+        public void LoadRulesFromFile<T>(string  fileName, string nodePath)
         {
             var xd = new XmlDocument();
             xd.Load(fileName);
@@ -98,7 +98,7 @@ namespace TinyRuleEngine.Engines
         /// <typeparam name="T"></typeparam>
         /// <param name="xd"></param>
         /// <param name="nodePath"></param>
-        public static void LoadRulesFromElementList<T>(XmlDocument xd, string nodePath)
+        public void LoadRulesFromElementList<T>(XmlDocument xd, string nodePath)
         {
             if (xd.DocumentElement != null)
             {
@@ -118,7 +118,7 @@ namespace TinyRuleEngine.Engines
             }
         }
 
-        public static Expression<Func<T, bool>> GetRule<T>(string ruleKey)
+        public Expression<Func<T, bool>> GetRule<T>(string ruleKey)
         {
             return Rules[ruleKey] as Expression<Func<T, bool>>;
         }

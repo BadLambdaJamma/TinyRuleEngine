@@ -58,7 +58,7 @@ namespace TinyRuleEngine.Readers
                 case "ruleitem":
                      var r = new Rule(rdr.GetAttribute("membername"),rdr.GetAttribute("targetvalue"), rdr.GetAttribute("operator"));
                      rdr.Read();
-                     return RuleEngine.GetExpression<T>(r);
+                     return new RuleEngine().GetExpression<T>(r);
 
                 default:
                     return DefaultGeneric;

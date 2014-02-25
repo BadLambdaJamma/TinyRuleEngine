@@ -35,11 +35,12 @@ namespace TinyRuleEngineTest.TuppleRuleEngineTest
             var carRule1 = new Rule("Year", "2010", "GreaterThanOrEqual","CarDTO");
             var salePersonRule1 = new Rule("State", "PA", "Equals", "SalesPersonDTO");
             var salePersonRule2 = new Rule("IsManager", "true", "Equals", "SalesPersonDTO");
+            var re = new TuppleRuleEngine();
 
             // Compile the rules as a seperate step 
-            Expression<Func<CarDTO, SalesPersonDTO, bool>> carRule1Expression = TinyRuleEngine.Engines.TuppleRuleEngine.GetExpression<CarDTO, SalesPersonDTO>(carRule1);
-            Expression<Func<CarDTO, SalesPersonDTO, bool>> salePersonRuleExpression1 = TinyRuleEngine.Engines.TuppleRuleEngine.GetExpression<CarDTO, SalesPersonDTO>(salePersonRule1);
-            Expression<Func<CarDTO, SalesPersonDTO, bool>> salePersonRuleExpression2 = TinyRuleEngine.Engines.TuppleRuleEngine.GetExpression<CarDTO, SalesPersonDTO>(salePersonRule2);
+            Expression<Func<CarDTO, SalesPersonDTO, bool>> carRule1Expression = re.GetExpression<CarDTO, SalesPersonDTO>(carRule1);
+            Expression<Func<CarDTO, SalesPersonDTO, bool>> salePersonRuleExpression1 = re.GetExpression<CarDTO, SalesPersonDTO>(salePersonRule1);
+            Expression<Func<CarDTO, SalesPersonDTO, bool>> salePersonRuleExpression2 = re.GetExpression<CarDTO, SalesPersonDTO>(salePersonRule2);
             Expression<Func<CarDTO, SalesPersonDTO, bool>> compositeRule
                 = carRule1Expression.Or(salePersonRuleExpression1).Or(salePersonRuleExpression2);
 
@@ -72,11 +73,12 @@ namespace TinyRuleEngineTest.TuppleRuleEngineTest
             };
             
             // Load all rules applied to the user type.
+            var re = new TuppleRuleEngine();
             var xd = new XmlDocument();
             xd.Load(@"C:\development\RuleEngine\TinyTuleEngineUnitTest\TuppleRuleEngineTest\RuleSetTupple.xml");
-            TinyRuleEngine.Engines.TuppleRuleEngine.LoadRulesFromElementList<CarDTO,SalesPersonDTO>(xd, "/rules/rule");
+            re.LoadRulesFromElementList<CarDTO,SalesPersonDTO>(xd, "/rules/rule");
 
-            Func<CarDTO, SalesPersonDTO, bool> fordSaleApproverWithSalesPersonInfo = TinyRuleEngine.Engines.TuppleRuleEngine.GetRule<CarDTO,SalesPersonDTO>("FordSaleApproverWithSalesPersonInfo").Compile();
+            Func<CarDTO, SalesPersonDTO, bool> fordSaleApproverWithSalesPersonInfo = re.GetRule<CarDTO,SalesPersonDTO>("FordSaleApproverWithSalesPersonInfo").Compile();
             Assert.AreEqual(true, fordSaleApproverWithSalesPersonInfo(car, salesperson));
 
         }

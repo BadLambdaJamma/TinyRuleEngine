@@ -38,12 +38,14 @@ namespace TinyRuleEngineTest.IdentityTuppleRuleEngineTest
             var claimRule = new Rule("@User", "S-1-5-21-2493390151-660934664-2262481224-513", "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid");
             var salePersonRule1 = new Rule("State", "PA", "Equals","SalesPersonDTO");
             var salePersonRule2 = new Rule("IsManager", "true", "Equals", "SalesPersonDTO");
+            
+            var re = new IdentityTuppleRuleEngine();
 
             // build Some Expressions 
-            Expression<Func<CarDTO, SalesPersonDTO,IClaimsPrincipal, bool>> carRule1Expression = IdentityTuppleRuleEngine.GetExpression<CarDTO,SalesPersonDTO>(carRule1);
-            Expression<Func<CarDTO, SalesPersonDTO, IClaimsPrincipal, bool>> claimRuleExpression = IdentityTuppleRuleEngine.GetExpression<CarDTO, SalesPersonDTO>(claimRule);
-            Expression<Func<CarDTO, SalesPersonDTO, IClaimsPrincipal, bool>> sp1Expression = IdentityTuppleRuleEngine.GetExpression<CarDTO, SalesPersonDTO>(salePersonRule1);
-            Expression<Func<CarDTO, SalesPersonDTO, IClaimsPrincipal, bool>> sp2Expression = IdentityTuppleRuleEngine.GetExpression<CarDTO, SalesPersonDTO>(salePersonRule2);
+            Expression<Func<CarDTO, SalesPersonDTO,IClaimsPrincipal, bool>> carRule1Expression = re.GetExpression<CarDTO,SalesPersonDTO>(carRule1);
+            Expression<Func<CarDTO, SalesPersonDTO, IClaimsPrincipal, bool>> claimRuleExpression = re.GetExpression<CarDTO, SalesPersonDTO>(claimRule);
+            Expression<Func<CarDTO, SalesPersonDTO, IClaimsPrincipal, bool>> sp1Expression = re.GetExpression<CarDTO, SalesPersonDTO>(salePersonRule1);
+            Expression<Func<CarDTO, SalesPersonDTO, IClaimsPrincipal, bool>> sp2Expression = re.GetExpression<CarDTO, SalesPersonDTO>(salePersonRule2);
 
 
             Expression<Func<CarDTO, SalesPersonDTO, IClaimsPrincipal, bool>> coumpoundExpr = 
@@ -78,11 +80,12 @@ namespace TinyRuleEngineTest.IdentityTuppleRuleEngineTest
             };
 
             // Load all rules applied to the user type.
+            var re = new IdentityTuppleRuleEngine();
             var xd = new XmlDocument();
             xd.Load(@"C:\development\RuleEngine\TinyTuleEngineUnitTest\IdentityTuppleRuleEngineTest\RuleSetBasicIdentityTupple.xml");
-            IdentityTuppleRuleEngine.LoadRulesFromElementList<CarDTO, SalesPersonDTO>(xd, "/rules/rule");
+            re.LoadRulesFromElementList<CarDTO, SalesPersonDTO>(xd, "/rules/rule");
             IClaimsPrincipal id = new ClaimsPrincipal(System.Threading.Thread.CurrentPrincipal);
-            Func<CarDTO, SalesPersonDTO, IClaimsPrincipal,bool> fordSaleApproverWithSalesPersonInfo = IdentityTuppleRuleEngine.GetRule<CarDTO, SalesPersonDTO>("FordSaleApproverSalesPerson").Compile();
+            Func<CarDTO, SalesPersonDTO, IClaimsPrincipal,bool> fordSaleApproverWithSalesPersonInfo = re.GetRule<CarDTO, SalesPersonDTO>("FordSaleApproverSalesPerson").Compile();
             Assert.AreEqual(true, fordSaleApproverWithSalesPersonInfo(car, salesperson,id));
 
         }

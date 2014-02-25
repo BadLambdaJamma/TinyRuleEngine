@@ -10,12 +10,12 @@ namespace TinyRuleEngine.Engines
     //
     // tiny rule engine -  a tuple variation for evaluating a rule set against two Rule DTOs in the same rule
     //
-    public static class TuppleRuleEngine
+    public class TuppleRuleEngine
     {
         /// <summary>
         /// hold a list of rules
         /// </summary>
-        private static readonly Dictionary<string, object> Rules = new Dictionary<string, object>();
+        private readonly Dictionary<string, object> Rules = new Dictionary<string, object>();
 
         /// <summary>
         /// compile a tuple rule of T, TK
@@ -24,7 +24,7 @@ namespace TinyRuleEngine.Engines
         /// <typeparam name="TK">the second type to compile the rule against</typeparam>
         /// <param name="rule">The rule DTO</param> 
         /// <returns>A Func to the method</returns>
-        static public Func<T,TK, bool> Compile<T,TK>(Rule rule)
+        public Func<T,TK, bool> Compile<T,TK>(Rule rule)
         {
             var param1 = Expression.Parameter(typeof(T));
             var param2 = Expression.Parameter(typeof(TK));
@@ -39,7 +39,7 @@ namespace TinyRuleEngine.Engines
         /// <typeparam name="TK">The second type the rule is matched to</typeparam>
         /// <param name="rule">the first rule</param>
         /// <returns>An Expression tree of Func"/></returns>
-        static public Expression<Func<T, TK,bool>> GetExpression<T,TK>(Rule rule)
+        public Expression<Func<T, TK,bool>> GetExpression<T,TK>(Rule rule)
         {
             var param1 = Expression.Parameter(typeof(T));
             var param2 = Expression.Parameter(typeof(TK));
@@ -54,7 +54,7 @@ namespace TinyRuleEngine.Engines
         /// <param name="param">the first expression for the tupple rule type</param>
         /// <param name="param2">the second expression for the tupple rule type</param>
         /// <returns></returns>
-        private static Expression BuildExpression(Rule rule, ParameterExpression param, ParameterExpression param2)
+        private Expression BuildExpression(Rule rule, ParameterExpression param, ParameterExpression param2)
         {
             // the rule dictates what parameter expression is uses with its "uses" attribute
             if (rule.Uses == param.Type.Name)
@@ -104,7 +104,7 @@ namespace TinyRuleEngine.Engines
         /// <typeparam name="TK">The tupple type of the Rule</typeparam>
         /// <param name="ruleKey">the rule key</param>
         /// <param name="rule">the expression to be saved</param>
-        public static void LoadRule<T,TK>(string ruleKey, Expression<Func<T, TK, bool>> rule)
+        public void LoadRule<T,TK>(string ruleKey, Expression<Func<T, TK, bool>> rule)
         {
             Rules.Add(ruleKey, rule);
         }
@@ -116,7 +116,7 @@ namespace TinyRuleEngine.Engines
         /// <typeparam name="TK">the tupple rule DTO type</typeparam>
         /// <param name="fileName">the file name to get the rules from</param>
         /// <param name="nodePath">the xpath filter for nodes</param>
-        public static void LoadRulesFromFile<T,TK>(string fileName, string nodePath)
+        public void LoadRulesFromFile<T,TK>(string fileName, string nodePath)
         {
             var xd = new XmlDocument();
             xd.Load(fileName);
@@ -130,7 +130,7 @@ namespace TinyRuleEngine.Engines
         /// <typeparam name="TK">the tupple rule DTO type</typeparam>
         /// <param name="xd">the xml document containing the nodes</param>
         /// <param name="nodePath">the xpath expression for nodes</param>
-        public static void LoadRulesFromElementList<T,TK>(XmlDocument xd, string nodePath)
+        public void LoadRulesFromElementList<T,TK>(XmlDocument xd, string nodePath)
         {
             if (xd.DocumentElement != null)
             {
@@ -161,7 +161,7 @@ namespace TinyRuleEngine.Engines
         /// <typeparam name="TK">the tupple rule DTO type</typeparam>
         /// <param name="ruleKey">the key of the rule to return</param>
         /// <returns></returns>
-        public static Expression<Func<T, TK, bool>> GetRule<T,TK>(string ruleKey)
+        public Expression<Func<T, TK, bool>> GetRule<T,TK>(string ruleKey)
         {
             return Rules[ruleKey] as Expression<Func<T, TK, bool>>;
         }

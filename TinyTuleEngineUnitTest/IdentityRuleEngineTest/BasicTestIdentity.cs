@@ -29,10 +29,10 @@ namespace TinyRuleEngineTest.IdentityRuleEngineTest
             // programatic mix in of claims rule and rule against the DTO user
             var carRule1 = new Rule("Year", "2010", "GreaterThanOrEqual");
             var claimRule = new Rule("@User", "S-1-5-21-2493390151-660934664-2262481224-513", "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid");
-
+            var re = new IdentityRuleEngine();
             // Compile the rules as a seperate step 
-            Expression<Func<CarDTO, IClaimsPrincipal, bool>> carRule1Expression = TinyRuleEngine.Engines.IdentityRuleEngine.GetExpression<CarDTO>(carRule1);
-            Expression<Func<CarDTO, IClaimsPrincipal, bool>> claimRuleExpression = TinyRuleEngine.Engines.IdentityRuleEngine.GetExpression<CarDTO>(claimRule);
+            Expression<Func<CarDTO, IClaimsPrincipal, bool>> carRule1Expression = re.GetExpression<CarDTO>(carRule1);
+            Expression<Func<CarDTO, IClaimsPrincipal, bool>> claimRuleExpression = re.GetExpression<CarDTO>(claimRule);
             Expression<Func<CarDTO, IClaimsPrincipal, bool>> compositeRule = carRule1Expression.Or(claimRuleExpression);
             
             // invoke the rules as a third step
@@ -58,12 +58,14 @@ namespace TinyRuleEngineTest.IdentityRuleEngineTest
                 SellingPrice = 9000.0000m
             };
 
+            var re = new IdentityRuleEngine();
+
             // Load all rules applied to the user type.
             XmlDocument xd = new XmlDocument();
             xd.Load(@"C:\development\RuleEngine\TinyTuleEngineUnitTest\IdentityRuleEngineTest\RuleSetBasicIdentity.xml");
-            TinyRuleEngine.Engines.IdentityRuleEngine.LoadRulesFromElementList<CarDTO>(xd, "/rules/rule");
+            re.LoadRulesFromElementList<CarDTO>(xd, "/rules/rule");
 
-            Func<CarDTO, IClaimsPrincipal, bool> fordSaleApprover = TinyRuleEngine.Engines.IdentityRuleEngine.GetRule<CarDTO>("FordSaleApprover").Compile();
+            Func<CarDTO, IClaimsPrincipal, bool> fordSaleApprover = re.GetRule<CarDTO>("FordSaleApprover").Compile();
             IClaimsPrincipal id = new ClaimsPrincipal(System.Threading.Thread.CurrentPrincipal);
             Assert.AreEqual(true, fordSaleApprover(car, id));
 

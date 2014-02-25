@@ -12,12 +12,12 @@ namespace TinyRuleEngine.Engines
     /// <summary>
     /// supports rule with DTO rule types comingled with a claims principal
     /// </summary>
-    public static class IdentityTuppleRuleEngine
+    public class IdentityTuppleRuleEngine
     {
         /// <summary>
         /// hold a list of rules
         /// </summary>
-        private static readonly Dictionary<string, object> Rules = new Dictionary<string, object>();
+        private readonly Dictionary<string, object> Rules = new Dictionary<string, object>();
 
         /// <summary>
         /// compile a rule
@@ -25,7 +25,7 @@ namespace TinyRuleEngine.Engines
         /// <typeparam name="T">the type to compile the rule against</typeparam>
         /// <param name="r">The rule</param>
         /// <returns>A Func to the method</returns>
-        static public Func<T, TK, IClaimsPrincipal, bool> Compile<T,TK>(Rule r)
+        public Func<T, TK, IClaimsPrincipal, bool> Compile<T,TK>(Rule r)
         {
             var param1 = Expression.Parameter(typeof(T));
             var param2 = Expression.Parameter(typeof(TK));
@@ -41,7 +41,7 @@ namespace TinyRuleEngine.Engines
         /// <typeparam name="TK">The tupple Rule DTO type</typeparam>
         /// <param name="r">the rule to derive the expression from</param>
         /// <returns>An expression represnting the rule and an IClaimsPrincipal</returns>
-        static public Expression<Func<T, TK,IClaimsPrincipal, bool>> GetExpression<T,TK>(Rule r)
+        public Expression<Func<T, TK,IClaimsPrincipal, bool>> GetExpression<T,TK>(Rule r)
         {
             var param1 = Expression.Parameter(typeof(T));
             var param2 = Expression.Parameter(typeof(TK));
@@ -59,7 +59,7 @@ namespace TinyRuleEngine.Engines
         /// <param name="param2">the parameter expression for the rule type</param>
         /// <param name="idparam">the second parameter expression for the IClaimsPrincipal</param>
         /// <returns>An Expression for the T,IClaimsPrincipal</returns>
-        private static Expression BuildExpression(Rule rule, ParameterExpression param, ParameterExpression param2, ParameterExpression idparam)
+        private Expression BuildExpression(Rule rule, ParameterExpression param, ParameterExpression param2, ParameterExpression idparam)
         {
             // check to see if the special '@User'  token is used
             bool isClaimRule = rule.MemberName.Equals("@User");
@@ -117,7 +117,7 @@ namespace TinyRuleEngine.Engines
         /// <typeparam name="TK">The type of the Rule</typeparam>
         /// <param name="ruleKey">the rule key</param>
         /// <param name="rule">the expression to be saved</param>
-        public static void LoadRule<T,TK>(string ruleKey, Expression<Func<T,TK, IClaimsPrincipal, bool>> rule)
+        public void LoadRule<T,TK>(string ruleKey, Expression<Func<T,TK, IClaimsPrincipal, bool>> rule)
         {
             Rules.Add(ruleKey, rule);
         }
@@ -129,7 +129,7 @@ namespace TinyRuleEngine.Engines
         /// <typeparam name="TK">the second rule DTO type</typeparam>
         /// <param name="fileName">the file name to get the rules from</param>
         /// <param name="nodePath">the xpath filter for nodes</param>
-        public static void LoadRulesFromFile<T,TK>(string fileName, string nodePath)
+        public void LoadRulesFromFile<T,TK>(string fileName, string nodePath)
         {
             var xd = new XmlDocument();
             xd.Load(fileName);
@@ -143,7 +143,7 @@ namespace TinyRuleEngine.Engines
         /// <typeparam name="TK">the second rule DTO type</typeparam>
         /// <param name="xd">the xml document containing the nodes</param>
         /// <param name="nodePath">the xpath expression for nodes</param>
-        public static void LoadRulesFromElementList<T,TK>(XmlDocument xd, string nodePath)
+        public void LoadRulesFromElementList<T,TK>(XmlDocument xd, string nodePath)
         {
             if (xd.DocumentElement != null)
             {
@@ -173,7 +173,7 @@ namespace TinyRuleEngine.Engines
         /// <typeparam name="TK">the second rule DTO type</typeparam>
         /// <param name="ruleKey">the key of the rule to return</param>
         /// <returns></returns>
-        public static Expression<Func<T, TK,IClaimsPrincipal, bool>> GetRule<T,TK>(string ruleKey)
+        public Expression<Func<T, TK,IClaimsPrincipal, bool>> GetRule<T,TK>(string ruleKey)
         {
             return Rules[ruleKey] as Expression<Func<T, TK,IClaimsPrincipal, bool>>;
         }
