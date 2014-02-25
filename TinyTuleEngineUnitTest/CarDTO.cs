@@ -8,5 +8,6 @@ namespace TinyRuleEngineTest
         public string Model { get; set; }
         public decimal AskingPrice { get; set; }
         public decimal SellingPrice { get; set; }
+        public decimal AverageSellingPrice { get; set; }
     }
 }
