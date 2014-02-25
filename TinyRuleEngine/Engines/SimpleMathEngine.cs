@@ -26,7 +26,7 @@ namespace TinyRuleEngine.Engines
 
         private Expression BuildExpression(MathValue r, ParameterExpression param)
         {
-            return Expression.PropertyOrField(param, r.MemberName);
+            return Expression.Convert(Expression.PropertyOrField(param, r.MemberName),typeof(double));
         }
 
         public void LoadRulesFromFile<T>(string fileName, string nodePath)
