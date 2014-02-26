@@ -59,19 +59,19 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="IdentityTuppleRuleEngineTest\BasicTestIdentityTupple.cs" />
+    <Compile Include="IdentityTupleRuleEngineTest\BasicTestIdentityTuple.cs" />
     <Compile Include="RuleEngineTest\BasicTests.cs" />
     <Compile Include="IdentityRuleEngineTest\BasicTestIdentity.cs" />
     <Compile Include="SalesPersonDTO.cs" />
     <Compile Include="SimpleMath\SimpleMathUnitTest.cs" />
-    <Compile Include="TuppleRuleEngineTest\BasicTestTupples.cs" />
+    <Compile Include="TupleRuleEngineTest\BasicTestTuples.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CarDTO.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="IdentityTuppleRuleEngineTest\RuleSetBasicIdentityTupple.xml" />
+    <Content Include="IdentityTupleRuleEngineTest\RuleSetBasicIdentityTuple.xml" />
     <Content Include="SimpleMath\SimpleMath.xml" />
-    <Content Include="TuppleRuleEngineTest\RuleSetTupple.xml" />
+    <Content Include="TupleRuleEngineTest\RuleSetTuple.xml" />
     <Content Include="IdentityRuleEngineTest\RuleSetBasicIdentity.xml" />
     <Content Include="RuleEngineTest\RuleSetBasic.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

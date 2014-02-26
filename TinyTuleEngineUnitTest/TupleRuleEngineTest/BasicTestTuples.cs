@@ -75,7 +75,7 @@ namespace TinyRuleEngineTest.TuppleRuleEngineTest
             // Load all rules applied to the user type.
             var re = new TupleRuleEngine();
             var xd = new XmlDocument();
-            xd.Load(@"C:\development\RuleEngine\TinyTuleEngineUnitTest\TuppleRuleEngineTest\RuleSetTupple.xml");
+            xd.Load(@"C:\development\RuleEngine\TinyTuleEngineUnitTest\TupleRuleEngineTest\RuleSetTuple.xml");
             re.LoadRulesFromElementList<CarDTO,SalesPersonDTO>(xd, "/rules/rule");
 
             Func<CarDTO, SalesPersonDTO, bool> fordSaleApproverWithSalesPersonInfo = re.GetRule<CarDTO,SalesPersonDTO>("FordSaleApproverWithSalesPersonInfo").Compile();
