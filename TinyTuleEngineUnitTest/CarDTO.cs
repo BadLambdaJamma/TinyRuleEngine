@@ -9,5 +9,6 @@ namespace TinyRuleEngineTest
         public decimal AskingPrice { get; set; }
         public decimal SellingPrice { get; set; }
         public decimal AverageSellingPrice { get; set; }
+        public decimal FixedComission { get; set; }
     }
 }

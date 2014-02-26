@@ -1,8 +1,11 @@
 ﻿<mathexps>
   <mathexp name="AskingVersusSelling" appliesto="TinyRuleEngineTest.CarDTO">
-      <minus>
-          <value item="SellingPrice" />
-          <value item="AskingPrice" />
-      </minus>
+      <plus>
+        <minus>
+            <value item="SellingPrice" />
+            <value item="AskingPrice" />
+        </minus>
+        <value item="FixedComission" />
+      </plus>
   </mathexp>
 </mathexps>

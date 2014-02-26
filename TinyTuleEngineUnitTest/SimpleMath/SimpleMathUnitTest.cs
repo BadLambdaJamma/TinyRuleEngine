@@ -26,7 +26,8 @@ namespace TinyRuleEngineTest.SimpleMath
                 Model = "Expedition",
                 AskingPrice = 10000.0000m,
                 SellingPrice = 9000.0000m,
-                AverageSellingPrice = 9500.000m
+                AverageSellingPrice = 9500.000m,
+                FixedComission = 100
             };
             var math = new SimpleMathEngine();
             var xd = new XmlDocument();
