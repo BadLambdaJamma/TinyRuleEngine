@@ -46,18 +46,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Engines\IdentityRuleEngine.cs" />
-    <Compile Include="Engines\IdentityTuppleRuleEngine.cs" />
+    <Compile Include="Engines\IdentityTupleRuleEngine.cs" />
     <Compile Include="Engines\MathValue.cs" />
     <Compile Include="Engines\SimpleMathEngine.cs" />
-    <Compile Include="Readers\IdentityTuppleRuleReader.cs" />
+    <Compile Include="Readers\IdentityTupleRuleReader.cs" />
     <Compile Include="Readers\IndentityRuleReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Engines\Rule.cs" />
     <Compile Include="Engines\RuleEngine.cs" />
     <Compile Include="Readers\RuleReader.cs" />
-    <Compile Include="Engines\TuppleRuleEngine.cs" />
+    <Compile Include="Engines\TupleRuleEngine.cs" />
     <Compile Include="Readers\SimpleMathExpressionReader.cs" />
-    <Compile Include="Readers\TuppleRuleReader.cs" />
+    <Compile Include="Readers\TupleRuleReader.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Readme.txt" />

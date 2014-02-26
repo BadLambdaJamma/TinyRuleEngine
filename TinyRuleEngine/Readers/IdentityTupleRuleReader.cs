@@ -64,7 +64,7 @@ namespace TinyRuleEngine.Readers
                 case "ruleitem":
                     var r = new Rule(rdr.GetAttribute("membername"), rdr.GetAttribute("targetvalue"), rdr.GetAttribute("operator"), rdr.GetAttribute("uses"));
                     rdr.Read();
-                    var item = new IdentityTuppleRuleEngine().GetExpression<T,TK>(r);
+                    var item = new IdentityTupleRuleEngine().GetExpression<T,TK>(r);
                     return item;
 
                 default:

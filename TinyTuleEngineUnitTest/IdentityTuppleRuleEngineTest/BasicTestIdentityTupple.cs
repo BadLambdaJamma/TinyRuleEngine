@@ -39,7 +39,7 @@ namespace TinyRuleEngineTest.IdentityTuppleRuleEngineTest
             var salePersonRule1 = new Rule("State", "PA", "Equals","SalesPersonDTO");
             var salePersonRule2 = new Rule("IsManager", "true", "Equals", "SalesPersonDTO");
             
-            var re = new IdentityTuppleRuleEngine();
+            var re = new IdentityTupleRuleEngine();
 
             // build Some Expressions 
             Expression<Func<CarDTO, SalesPersonDTO,IClaimsPrincipal, bool>> carRule1Expression = re.GetExpression<CarDTO,SalesPersonDTO>(carRule1);
@@ -80,7 +80,7 @@ namespace TinyRuleEngineTest.IdentityTuppleRuleEngineTest
             };
 
             // Load all rules applied to the user type.
-            var re = new IdentityTuppleRuleEngine();
+            var re = new IdentityTupleRuleEngine();
             var xd = new XmlDocument();
             xd.Load(@"C:\development\RuleEngine\TinyTuleEngineUnitTest\IdentityTuppleRuleEngineTest\RuleSetBasicIdentityTupple.xml");
             re.LoadRulesFromElementList<CarDTO, SalesPersonDTO>(xd, "/rules/rule");

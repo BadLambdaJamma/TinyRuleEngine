@@ -12,7 +12,7 @@ namespace TinyRuleEngine.Engines
     /// <summary>
     /// supports rule with DTO rule types comingled with a claims principal
     /// </summary>
-    public class IdentityTuppleRuleEngine
+    public class IdentityTupleRuleEngine
     {
         /// <summary>
         /// hold a list of rules

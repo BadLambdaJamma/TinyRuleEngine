@@ -10,7 +10,7 @@ namespace TinyRuleEngine.Engines
     //
     // tiny rule engine -  a tuple variation for evaluating a rule set against two Rule DTOs in the same rule
     //
-    public class TuppleRuleEngine
+    public class TupleRuleEngine
     {
         /// <summary>
         /// hold a list of rules

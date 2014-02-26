@@ -35,7 +35,7 @@ namespace TinyRuleEngineTest.TuppleRuleEngineTest
             var carRule1 = new Rule("Year", "2010", "GreaterThanOrEqual","CarDTO");
             var salePersonRule1 = new Rule("State", "PA", "Equals", "SalesPersonDTO");
             var salePersonRule2 = new Rule("IsManager", "true", "Equals", "SalesPersonDTO");
-            var re = new TuppleRuleEngine();
+            var re = new TupleRuleEngine();
 
             // Compile the rules as a seperate step 
             Expression<Func<CarDTO, SalesPersonDTO, bool>> carRule1Expression = re.GetExpression<CarDTO, SalesPersonDTO>(carRule1);
@@ -73,7 +73,7 @@ namespace TinyRuleEngineTest.TuppleRuleEngineTest
             };
             
             // Load all rules applied to the user type.
-            var re = new TuppleRuleEngine();
+            var re = new TupleRuleEngine();
             var xd = new XmlDocument();
             xd.Load(@"C:\development\RuleEngine\TinyTuleEngineUnitTest\TuppleRuleEngineTest\RuleSetTupple.xml");
             re.LoadRulesFromElementList<CarDTO,SalesPersonDTO>(xd, "/rules/rule");
