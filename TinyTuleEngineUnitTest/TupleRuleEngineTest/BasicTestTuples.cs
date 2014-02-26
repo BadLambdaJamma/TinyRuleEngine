@@ -13,7 +13,7 @@ namespace TinyRuleEngineTest.TuppleRuleEngineTest
         /// this test demostrates the basic functions of the identity (claimsprincipal) rule engine without a rule xml file.
         /// </summary>
         [TestMethod]
-        public void TupplesBasicOperatorTest()
+        public void TuplesBasicOperatorTest()
         {
             // rule DTO 
             var car = new CarDTO
@@ -53,7 +53,7 @@ namespace TinyRuleEngineTest.TuppleRuleEngineTest
         /// demonstrates the ability of the rule engine to load a complex rule graph from an Xml file
         /// </summary>
         [TestMethod]
-        public void TupplesLoadFromFile()
+        public void TuplesLoadFromFile()
         {
             // rule DTO 
             var car = new CarDTO

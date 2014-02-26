@@ -14,7 +14,7 @@ namespace TinyRuleEngineTest.IdentityTuppleRuleEngineTest
         /// this test demostrates the basic functions of the identity (claimsprincipal) rule engine without a rule xml file.
         /// </summary>
         [TestMethod]
-        public void IdentityTuppleBasicOperatorTest()
+        public void IdentityTupleBasicOperatorTest()
         {
             // rule DTO 
             var car = new CarDTO
@@ -60,7 +60,7 @@ namespace TinyRuleEngineTest.IdentityTuppleRuleEngineTest
         /// demonstrates the ability of the rule engine to load a complex rule graph from an Xml file
         /// </summary>
         [TestMethod]
-        public void IndentityTuppleLoadFromFile()
+        public void IndentityTupleLoadFromFile()
         {
             // rule DTO 
             var car = new CarDTO
@@ -82,7 +82,7 @@ namespace TinyRuleEngineTest.IdentityTuppleRuleEngineTest
             // Load all rules applied to the user type.
             var re = new IdentityTupleRuleEngine();
             var xd = new XmlDocument();
-            xd.Load(@"C:\development\RuleEngine\TinyTuleEngineUnitTest\IdentityTuppleRuleEngineTest\RuleSetBasicIdentityTupple.xml");
+            xd.Load(@"C:\development\RuleEngine\TinyTuleEngineUnitTest\IdentityTupleRuleEngineTest\RuleSetBasicIdentityTuple.xml");
             re.LoadRulesFromElementList<CarDTO, SalesPersonDTO>(xd, "/rules/rule");
             IClaimsPrincipal id = new ClaimsPrincipal(System.Threading.Thread.CurrentPrincipal);
             Func<CarDTO, SalesPersonDTO, IClaimsPrincipal,bool> fordSaleApproverWithSalesPersonInfo = re.GetRule<CarDTO, SalesPersonDTO>("FordSaleApproverSalesPerson").Compile();
