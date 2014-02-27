@@ -9,10 +9,10 @@ namespace TinyRuleEngineTest.SimpleMath
     public class CircuitMathUnitTest
     {
         /// <summary>
-        /// demonstartes the math engine calculate the Resonant Frequncy of a Tank circuit
+        /// Demonstrates the math engine calculating the Resonant Frequncy of a Tank circuit
         /// 
-        ///            1
-        ///  ==========================
+        ///             1
+        /// =========================
         /// 2 * Pi * SquareRoot((L*C)
         /// 
         /// 
