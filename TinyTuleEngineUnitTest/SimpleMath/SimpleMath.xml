@@ -38,22 +38,22 @@
     </plus>
   </mathexp>
   <mathexp name="ResonantFrequencyOfATankCircuit" appliesto="TinyRuleEngineTest.CircuitDTO">
-    <divide>
-      <value item="@@1" />
-      <multiply>
-        <value item="@@2" />
+    <round>
+      <divide>
+        <value item="@@1" />
         <multiply>
-          <value item="@Pi"/>
-          <sqrt>
-            <multiply>
-              <value item="InductanceInHenries" />
-              <value item="CapacitanceInFarads" />
-            </multiply>
-          </sqrt>
+          <value item="@@2" />
+          <multiply>
+            <value item="@Pi"/>
+            <sqrt>
+              <multiply>
+                <value item="InductanceInHenries" />
+                <value item="CapacitanceInFarads" />
+              </multiply>
+            </sqrt>
+          </multiply>
         </multiply>
-      </multiply>
-    </divide>
+      </divide>
+    </round>
   </mathexp>
-
-  
 </mathexps>

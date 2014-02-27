@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TinyRuleEngine.Engines;
@@ -25,7 +21,7 @@ namespace TinyRuleEngineTest.SimpleMath
         [TestMethod]
         public void ResonantFrequencyOfATankCircuit()
         {
-            // rule DTO 
+            // circuitDTO 
             var circuit = new CircuitDTO
             {
                 InductanceInHenries = .1000m,  // 100 millihenries
@@ -38,6 +34,7 @@ namespace TinyRuleEngineTest.SimpleMath
             math.LoadRulesFromElementList<CircuitDTO>(xd, "/mathexps/mathexp");
             Func<CircuitDTO, double> resonantFrequencyOfATankCircuit = math.GetRule<CircuitDTO>("ResonantFrequencyOfATankCircuit").Compile();
             var result = resonantFrequencyOfATankCircuit(circuit);
+            Assert.AreEqual(159.0,result);
         }
     }
 }
