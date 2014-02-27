@@ -1,5 +1,5 @@
 ﻿<mathexps>
-  <mathexp name="AskingVersusSelling" appliesto="TinyRuleEngineTest.CarDTO">
+  <mathexp name="AskingMinusSellingPlusComission" appliesto="TinyRuleEngineTest.CarDTO">
       <plus>
         <minus>
             <value item="SellingPrice" />
@@ -7,5 +7,52 @@
         </minus>
         <value item="FixedComission" />
       </plus>
+  </mathexp>
+  <mathexp name="costest" appliesto="TinyRuleEngineTest.CarDTO">
+      <minus>
+        <cos>
+          <value item="FixedComission" />
+        </cos>
+        <value item="AskingPrice" />
+      </minus>
+  </mathexp>
+  <mathexp name="pitest" appliesto="TinyRuleEngineTest.CarDTO">
+    <plus>
+      <minus>
+        <value item="@Pi" />
+        <value item="@1" />
+      </minus>
+      <value item="@LogBase" />
+    </plus>
+  </mathexp>
+  <mathexp name="literal" appliesto="TinyRuleEngineTest.CarDTO">
+    <plus>
+      <plus>
+        <minus>
+          <value item="@Pi" />
+          <value item="@1" />
+        </minus>
+        <value item="@LogBase" />
+      </plus>
+      <value item="@@20" />
+    </plus>
+  </mathexp>
+  <mathexp name="ResonantFrequencyOfATankCircuit" appliesto="TinyRuleEngineTest.CircuitDTO">
+    <divide>
+      <value item="@@1" />
+      <multiply>
+          <value item="@@2" />
+        <multiply>
+          <value item="@Pi"/>
+          <sqrt>
+            <multiply>
+              <value item="InductanceInHenries" />
+              <value item="CapacitanceInFarads" />
+            </multiply>
+          </sqrt>
+        </multiply>
+      </multiply>
+    </divide>
+
   </mathexp>
 </mathexps>

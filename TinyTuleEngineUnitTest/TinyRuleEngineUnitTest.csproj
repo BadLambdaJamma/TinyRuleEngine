@@ -59,10 +59,12 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="CircuitDTO.cs" />
     <Compile Include="IdentityTupleRuleEngineTest\BasicTestIdentityTuple.cs" />
     <Compile Include="RuleEngineTest\BasicTests.cs" />
     <Compile Include="IdentityRuleEngineTest\BasicTestIdentity.cs" />
     <Compile Include="SalesPersonDTO.cs" />
+    <Compile Include="SimpleMath\SimpleMathCircuitFormulas.cs" />
     <Compile Include="SimpleMath\SimpleMathUnitTest.cs" />
     <Compile Include="TupleRuleEngineTest\BasicTestTuples.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -70,7 +72,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="IdentityTupleRuleEngineTest\RuleSetBasicIdentityTuple.xml" />
-    <Content Include="SimpleMath\SimpleMath.xml" />
+    <Content Include="SimpleMath\SimpleMath.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="TupleRuleEngineTest\RuleSetTuple.xml" />
     <Content Include="IdentityRuleEngineTest\RuleSetBasicIdentity.xml" />
     <Content Include="RuleEngineTest\RuleSetBasic.xml">
