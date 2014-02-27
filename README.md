@@ -1,5 +1,32 @@
-TinyRuleEngine
-==============
+TinyRuleEngine - The simple math engine has been added!
+========================================================
+
+
+With the simplemathengine, most any mathmatical equation can be dynamically built, converted to an
+abstract syntax tree, compiled, and evaluated,   NO REFLECTION REQUIRED!
+
+Simple Math Expression for the Resonant Freuqncy of a "Tank" Circuit:
+
+<mathexp name="ResonantFrequencyOfATankCircuit" appliesto="TinyRuleEngineTest.CircuitDTO">
+    <round>
+      <divide>
+        <value item="@@1" />
+        <multiply>
+          <value item="@@2" />
+          <multiply>
+            <value item="@Pi"/>
+            <sqrt>
+              <multiply>
+                <value item="InductanceInHenries" />
+                <value item="CapacitanceInFarads" />
+              </multiply>
+            </sqrt>
+          </multiply>
+        </multiply>
+      </divide>
+    </round>
+  </mathexp>
+
 
 
 Version .9 Beta release
