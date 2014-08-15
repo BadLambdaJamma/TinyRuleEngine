@@ -37,6 +37,9 @@
       <value item="@@20" />
     </plus>
   </mathexp>
+  
+  
+  
   <mathexp name="ResonantFrequencyOfATankCircuit" appliesto="TinyRuleEngineTest.CircuitDTO">
     <round>
       <divide>
@@ -56,4 +59,5 @@
       </divide>
     </round>
   </mathexp>
+
 </mathexps>

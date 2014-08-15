@@ -43,6 +43,14 @@
       <HintPath>..\..\..\Program Files\Reference Assemblies\Microsoft\Windows Identity Foundation\v3.5\Microsoft.IdentityModel.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Data.Services" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.XML" />
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
@@ -60,6 +68,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="CircuitDTO.cs" />
+    <Compile Include="ClinicalEngine\MedicalClaimForm.cs" />
     <Compile Include="IdentityTupleRuleEngineTest\BasicTestIdentityTuple.cs" />
     <Compile Include="RuleEngineTest\BasicTests.cs" />
     <Compile Include="IdentityRuleEngineTest\BasicTestIdentity.cs" />
@@ -71,7 +80,27 @@
     <Compile Include="CarDTO.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ClinicalEngine\ClaimForm001.xml" />
+    <Content Include="ClinicalEngine\MasterDataSets\CMS32_DESC_LONG_DX.txt" />
+    <Content Include="ClinicalEngine\MasterDataSets\CMS32_DESC_LONG_SG.txt" />
+    <Content Include="ClinicalEngine\MasterDataSets\CMS32_DESC_SHORT_DX.txt" />
+    <Content Include="ClinicalEngine\MasterDataSets\CMS32_DESC_SHORT_SG.txt" />
+    <Content Include="ClinicalEngine\MasterDataSets\ICD10CM_FY2014_Full_XML_DIndex.xml" />
+    <Content Include="ClinicalEngine\MasterDataSets\ICD10CM_FY2014_Full_XML_EIndex.xml" />
+    <Content Include="ClinicalEngine\MasterDataSets\ICD10CM_FY2014_Full_XML_TableOfDrugs.xml" />
+    <Content Include="ClinicalEngine\MasterDataSets\ICD10CM_FY2014_Full_XML_TableOfNeoplasms.xml" />
+    <Content Include="ClinicalEngine\MasterDataSets\ICD10CM_FY2014_Full_XML_Tabular.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ClinicalEngine\RuleLang.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ClinicalEngine\TenantDataSets\Tenant001\DiagnosisCode.xml" />
+    <Content Include="ClinicalEngine\TenantDataSets\Tenant001\ProcedureCode.xml" />
     <Content Include="IdentityTupleRuleEngineTest\RuleSetBasicIdentityTuple.xml" />
+    <Content Include="SimpleMath\RuleLang.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="SimpleMath\SimpleMath.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -87,6 +116,12 @@
       <Name>TinyRuleEngine</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="ClinicalEngine\MasterDataSets\ccipra-v201r0-.f1.xlsx" />
+    <None Include="ClinicalEngine\MasterDataSets\CMS32_DESC_LONG_SHORT_DX.xlsx" />
+    <None Include="ClinicalEngine\MasterDataSets\CMS32_DESC_LONG_SHORT_SG.xlsx" />
+  </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

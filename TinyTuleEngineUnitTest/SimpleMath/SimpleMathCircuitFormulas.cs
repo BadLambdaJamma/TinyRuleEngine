@@ -1,7 +1,11 @@
 ﻿using System;
+using System.IO;
 using System.Xml;
+using System.Xml.Schema;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TinyRuleEngine.Engines;
+using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace TinyRuleEngineTest.SimpleMath
 {
@@ -14,7 +18,7 @@ namespace TinyRuleEngineTest.SimpleMath
         ///             1
         /// =========================
         /// 2 * Pi * SquareRoot((L*C)
-        /// 
+        ///     
         /// 
         /// 
         /// </summary>
@@ -28,6 +32,15 @@ namespace TinyRuleEngineTest.SimpleMath
                 CapacitanceInFarads = .00001m  // 10 micro farads
             };
 
+            var s = new DataContractSerializer(typeof(CircuitDTO));
+            var m = new MemoryStream();
+            s.WriteObject(m,circuit);
+            m.Position = 0;
+            var sr = new StreamReader(m);
+            var resulta = sr.ReadToEnd();
+
+
+          
             var math = new SimpleMathEngine();
             var xd = new XmlDocument();
             xd.Load(@"C:\development\RuleEngine\TinyTuleEngineUnitTest\SimpleMath\SimpleMath.xml");

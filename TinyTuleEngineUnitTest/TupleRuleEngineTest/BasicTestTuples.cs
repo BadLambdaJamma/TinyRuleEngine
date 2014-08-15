@@ -15,7 +15,7 @@ namespace TinyRuleEngineTest.TuppleRuleEngineTest
         [TestMethod]
         public void TuplesBasicOperatorTest()
         {
-            // rule DTO 
+            // rule DTO  #1
             var car = new CarDTO
             {
                 Make = "Ford",
@@ -24,6 +24,8 @@ namespace TinyRuleEngineTest.TuppleRuleEngineTest
                 AskingPrice = 10000.0000m,
                 SellingPrice = 9000.0000m
             };
+
+            // rule DTO  #2 
             var salesperson = new SalesPersonDTO
             {
                 State = "PA",

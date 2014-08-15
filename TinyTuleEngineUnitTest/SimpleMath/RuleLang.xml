@@ -1,0 +1,54 @@
+﻿<mathexps>
+ 
+  <mathexp name="AllowedProcedureCode" appliesto="TinyRuleEngineTest.ClaimLineDTO">
+    <round>
+      <divide>
+        <value item="@@1" />
+        <multiply>
+          <value item="@@2" />
+          <multiply>
+            <value item="@Pi"/>
+            <sqrt>
+              <multiply>
+                <value item="InductanceInHenries" />
+                <value item="CapacitanceInFarads" />
+              </multiply>
+            </sqrt>
+          </multiply>
+        </multiply>
+      </divide>
+    </round>
+  </mathexp>
+
+
+  <statements>
+    <loaddata name="header" action="add" item="%HEADER%"></loaddata>
+    <rule name="Validate"></rule>
+    <rule name="DatesOfServiceAndMemberIdCheck"></rule>
+  </statements>
+
+
+    <!-- declare a varibale -->
+    <declare type="TinyRuleEngineTest.CircuitDTO" name="Circuit">
+      <CircuitDTO inductanceinhenries="0.1000" capacitanceinfarads="0.00001" xmlns="http://schemas.datacontract.org/2004/07/TinyRuleEngineTest" />
+    </declare>
+
+    <!-- run an expression, by the default the result is on the stack frame-->
+    <runexp>
+      <name>ResonantFrequencyOfATankCircuit</name>
+      <parameter>Circuit</parameter>
+    </runexp>
+
+    <!-- Flow Control: we only need to do this if the resonant frequncy is 160 or above -->
+    <if var="$ResonantFrequencyOfATankCircuit" operator="GreaterThanOrEqual"  value="160">
+      <statments>
+        <function>
+        </function>
+      </statments>
+    </if>
+
+
+  </statments>
+
+</mathexps>
+

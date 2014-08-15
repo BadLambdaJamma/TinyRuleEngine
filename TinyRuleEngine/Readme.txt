@@ -17,9 +17,9 @@ Rule reader uses Predicate Builder to allow you to Join rule expressions in Code
 Each type of rule engine is illistrated with unit tests:
 
 1. RuleEngine - A rule engine that evaluates against a single type defined by the developer or rule writer
-2. IdentityRuleEngine - A rule engine that supports claims principal checks mixed in with a generic type
+2. IdentityRuleEngine - A rule engine that supports claims principal checks mixed in with a generic types
 3. TuppleRuleEngine - A rule engine that evaulates against two types defined by the developer or rule writer
-4. IdentityTuppleRuleEngine - A Rule Engine that evaluates against two types and supports claims pincipal claim checks
+4. IdentityTuppleRuleEngine - A Rule Engine that evaluates against two types and supports claims principal claim checks
 
 Here are the main features:
 

@@ -1,6 +1,9 @@
 ﻿
 namespace TinyRuleEngineTest
 {
+    /// <summary>
+    /// sample DTO class for testing
+    /// </summary>
     public class CarDTO
     {
         public int Year { get; set; }
