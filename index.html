@@ -100,64 +100,65 @@
             <br />
 &nbsp;&nbsp;&nbsp; 4. IdentityTuppleRuleEngine - Support two DTO types (.e.g. car and Saleperson) +  IClaimsPrincipal<br />
             <br />
-&nbsp;====================================================================================================
+<hr />
             Licensed as Open Source software under the Apache License.
             Please contact me with bugs, improvements or bitcoins - jonathananewell@hotmail.com
-
+<hr />
             Rule reader uses Predicate Builder to allow you to Join rule expressions in Code.
 
-            ===================================================================================================
+<hr />
             Each type of rule engine is illistrated with unit tests:
 
-            1. RuleEngine - A rule engine that evaluates against a single type defined by the developer or rule writer
-            2. IdentityRuleEngine - A rule engine that supports claims principal checks mixed in with a generic type
-            3. TuppleRuleEngine - A rule engine that evaulates against two types defined by the developer or rule writer
-            4. IdentityTuppleRuleEngine - A Rule Engine that evaluates against two types and supports claims pincipal claim checks
+            1. RuleEngine - A rule engine that evaluates against a single type defined by the developer or rule writer <br />
+            2. IdentityRuleEngine - A rule engine that supports claims principal checks mixed in with a generic type <br />
+            3. TuppleRuleEngine - A rule engine that evaulates against two types defined by the developer or rule writer <br />
+            4. IdentityTuppleRuleEngine - A Rule Engine that evaluates against two types and supports claims pincipal claim checks <br />
 
-            Here are the main features:
+            <hr />
+            Here are the main features:<br />
 
-            1. Pure code model supported:  define, compile and execute rules in code.
-            2. XML based model: Load complex rule graphs with deep cyclomatic logic from simple Xml files.
-            3. Hybrid model:  mix-in your code and XML rules anyway you want with any logical operators.
-            4. Pluggable rule readers.  Define your own rule language or variation without impacting consuming code.
-            5. Performant - Uses .NET expression trees to create fast executeable code on the fly.
+            1. Pure code model supported:  define, compile and execute rules in code.<br />
+            2. XML based model: Load complex rule graphs with deep cyclomatic logic from simple Xml files.<br />
+            3. Hybrid model:  mix-in your code and XML rules anyway you want with any logical operators. <br />
+            4. Pluggable rule readers.  Define your own rule language or variation without impacting consuming code. <br />
+            5. Performant - Uses .NET expression trees to create fast executeable code on the fly. <br />
 
 
-            ====================================================================================================
+            <hr />
             Supported join operators:
-            ====================================================================================================
+            <hr />
             and
             or
             xor
 
-            ===================================================================================================
+            <hr />
             Supported comparison Operators
-            ===================================================================================================
-            string properties:
+            <hr />
+            string properties:<br />
 
-            Equals
-            Startswith
-            EndsWith
-            Contains
+            Equals<br />
+            Startswith <br />
+            EndsWith <br />
+            Contains <br />
 
-            Numeric properties:
-            Equals
-            Lessthan
-            GreaterThan
-            LessthanOrEqual
-            GreaterthanOrEqual
+            Numeric properties: <br />
+            Equals <br />
+            Lessthan <br />
+            GreaterThan <br />
+            LessthanOrEqual <br />
+            GreaterthanOrEqual <br />
 
-            ======================================================================================================
+            <hr />
             Simple rule: 1 rule shown
-            ======================================================================================================
+            <hr />
             <rules>
                 <rule name="IsApprover" appliesto="UnitTestProject1.User">
                     <ruleitem membername="Age" operator="Equals" targetvalue="22" />
                     <rule>
             </rules>
-            ======================================================================================================
+            <hr />
             Complex rule: 2 rules shown
-            ======================================================================================================
+            <hr />
             <rules>
                 <rule name="IsApprover" appliesto="UnitTestProject1.User">
                     <and>
@@ -175,11 +176,11 @@
                     <ruleitem membername="Age" operator="Equals" targetvalue="22" />
                 </rule>
             </rules>
-            ======================================================================================================
-            Complex rule: 3 -Identity rules shown with a group SID claim (any claim including role may be used)
-            member name is set to the special value of @user
-            operator is the claimType
-            TargetValue is the claim value.
+            <hr />
+            Complex rule: 3 -Identity rules shown with a group SID claim (any claim including role may be used) <br />
+            member name is set to the special value of @user <br />
+            operator is the claimType <br />
+            TargetValue is the claim value. <br />
 
             Claims on the Principal are processed with this lambda:
 
