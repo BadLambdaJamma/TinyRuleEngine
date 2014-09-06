@@ -60,6 +60,7 @@
     <Content Include="images\bg_hr.png" />
     <Content Include="images\blacktocat.png" />
     <Content Include="images\icon_download.png" />
+    <Content Include="images\resonantfrequncy.png" />
     <Content Include="images\sprite_download.png" />
     <Content Include="index.html" />
     <Content Include="javascripts\main.js" />
