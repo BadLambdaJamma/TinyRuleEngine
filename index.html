@@ -4,11 +4,16 @@
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Tinyruleengine : A Tiny rule engine in C#  small, fast and extensible">
+    <meta name="description" content="Tiny Rule Engine : A Tiny rule engine in C#  small, fast and extensible">
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <title>Tinyruleengine</title>
+    <title>Tiny Rule Engine</title>
+      <style type="text/css">
+          .auto-style1 {
+              font-size: large;
+          }
+      </style>
   </head>
 
   <body>
@@ -18,8 +23,8 @@
         <header class="inner">
           <a id="forkme_banner" href="https://github.com/BadLambdaJamma/TinyRuleEngine">View on GitHub</a>
 
-          <h1 id="project_title">Tinyruleengine</h1>
-          <h2 id="project_tagline">A Tiny rule engine in C#: composable, small, fast and extensible</h2>
+          <h1 id="project_title">Tiny Rule Engine</h1>
+          <h2 id="project_tagline">A tiny rule engine and SDK in C#: composable, small, fast and extensible.</h2>
 
             <section id="downloads">
               <a class="zip_download_link" href="https://github.com/BadLambdaJamma/TinyRuleEngine/zipball/master">Download this project as a .zip file</a>
@@ -31,56 +36,65 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
         <section id="main_content" class="inner">
+            <strong><span class="auto-style1">September 2014 Version 1.0</span></strong>:
             Latest
             TinyRuleEngine - The simple math engine has been added!
             <hr />
 
+            <p>
+            With the simple math engine 
+                example, almost any mathmatical equation can be dynamically built, converted to an abstract syntax tree, compiled, and evaluated, all at native code speed!</p>
+            <p>
+                A lightweight rule expressed in XML:<br />
+            </p>
+            <strong>Simple math engine expression string for the resonant freuqncy of a "Tank" circuit:<br />
+            &lt;mathexp name=&quot;ResonantFrequencyOfATankCircuit&quot; appliesto=&quot;TinyRuleEngineTest.CircuitDTO&quot;&gt;<br />
+&nbsp;&nbsp;&nbsp; &lt;round&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;divide&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;value item=&quot;@@1&quot; /&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;multiply&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;value item=&quot;@@2&quot; /&gt;
+            <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;multiply&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;value item=&quot;@Pi&quot;/&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;sqrt&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;multiply&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;value item=&quot;InductanceInHenries&quot; /&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;value item=&quot;CapacitanceInFarads&quot; /&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/multiply&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/sqrt&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/multiply&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/multiply&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/divide&gt;<br />
+&nbsp;&nbsp;&nbsp; &lt;/round&gt;<br />
+            &lt;/mathexp&gt;</strong><br />
+            <br />
+            <br />
+            <strong><span class="auto-style1">Fall 2013 .9 Beta Release: </span></strong>This is a minimal feature rule engine based on conposability and compact size.<br />
+&nbsp;A simple C# rules engine for .NET using Linq Expressions, Lambdas, and Delegates.  small and fast.
 
-            With the simplemathengine, most any mathmatical equation can be dynamically built, converted to an
-            abstract syntax tree, compiled, and evaluated,   NO REFLECTION REQUIRED!
-
-            Simple Math Expression for the Resonant Freuqncy of a "Tank" Circuit:
-
-            &lt;name="ResonantFrequencyOfATankCircuit" appliesto="TinyRuleEngineTest.CircuitDTO"&lt;<br />
-                &lt;round>
-                    &lt;divide>
-                        &lt;value item="@@1" />
-                        &lt;multiply>
-                            &lt;value item="@@2" />
-                            <multiply>
-                                <value item="@Pi" />
-                                <sqrt>
-                                    <multiply>
-                                        <value item="InductanceInHenries" />
-                                        <value item="CapacitanceInFarads" />
-                                    </multiply>
-                                </sqrt>
-                            </multiply>
-                        </multiply>
-                    </divide>
-                </round>
-            </mathexp>
-
-            Version .9 Beta release
-
-            This is a minimal feature rule engine based on speed and since.
-
-
-            A simple C# rules engine for .NET using Linq Expressions, Lambdas, and Delegates.  small and fast.
-
+            <br />
             1.  Supports a Code first model, or an all Code approach, to building, compiling and executing rules as discrete steps
+            <br />
             2.  Supports XML Driven rules with deep logical nesting
+            <br />
             3.  Supports Mix of Code and XML rules with logical operators and fluent syntax
 
 
-            Supported Engines:
+            <br />
+            <br />
+            Supported Engines:<br />
+&nbsp;&nbsp;&nbsp;
 
             1. RuleEngine - A Simple rule engine that evaluates rules against a given type (DTO type)
-            2. IdentityRuleEngine - Included support for making IClaimsPrincipal claim checks mixed with DTO rules.
-            3. TuppleRuleEngine - Supports Rules compiled against two DTO types (e.g. Car and SalesPerson )
-            4. IdentityTuppleRuleEngine - Support two DTO types (.e.g. car and Saleperson) +  IClaimsPrincipal
-
-            ====================================================================================================
+            <br />
+&nbsp;&nbsp;&nbsp; 2. IdentityRuleEngine - Included support for making IClaimsPrincipal claim checks mixed with DTO rules.
+            <br />
+&nbsp;&nbsp;&nbsp; 3. TuppleRuleEngine - Supports Rules compiled against two DTO types (e.g. Car and SalesPerson )
+            <br />
+&nbsp;&nbsp;&nbsp; 4. IdentityTuppleRuleEngine - Support two DTO types (.e.g. car and Saleperson) +  IClaimsPrincipal<br />
+            <br />
+&nbsp;====================================================================================================
             Licensed as Open Source software under the Apache License.
             Please contact me with bugs, improvements or bitcoins - jonathananewell@hotmail.com
 
