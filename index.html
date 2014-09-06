@@ -182,6 +182,7 @@
             operator is the claimType <br />
             TargetValue is the claim value. <br />
 
+            <hr />
             Claims on the Principal are processed with this lambda:
 
             Expression<func<IClaimsPrincipal,string, string, bool>> HasClaimTest
@@ -191,7 +192,7 @@
 	ct = the claim type
 	cv = the claim value
 
-======================================================================================================
+<hr />
 <rules>
   <rule name="IsApprover" appliesto="TinyRuleEngineTest.User">
     <or>
@@ -207,41 +208,42 @@
   </rule>
 </rules>
 
-=======================================================================================================
+<hr />
 FAQuestions
-=======================================================================================================
-1. How come rule builder does not just call compile for me?
+<hr />
+1. How come rule builder does not just call compile for me? <br />
 
-    Rule builder assumes a few things when it comes to calling compile:
+    Rule builder assumes a few things when it comes to calling compile: <br />
 
-	a. The developer knows best when to call compile.  Compiled rules should usually be backed by
-	   a lazy loaded cache to avoid calling compile.
+	a. The developer knows best when to call compile.  Compiled rules should usually be backed by <br />
+	   a lazy loaded cache to avoid calling compile. <br />
 
-	b. Compile will sometimes invoke reflection, sometimes not.  For any operator but 'Equals' on a string comparison,
-	   reflection will be used to build the expression.  None of the numeric operators invoke reflection when compile
-	   is called.  None of the claims based rules invoke reflection.
+	b. Compile will sometimes invoke reflection, sometimes not.  For any operator but 'Equals' on a string comparison, <br />
+	   reflection will be used to build the expression.  None of the numeric operators invoke reflection when compile <br />
+	   is called.  None of the claims based rules invoke reflection. <br />
 
-	c. mix-ins are only suppoorted against expressions not compiled rules.  you can use mix-ins all you want and then
-	   you call compile on the newly composed rule.
+	c. mix-ins are only suppoorted against expressions not compiled rules.  you can use mix-ins all you want and then <br />
+	   you call compile on the newly composed rule. <br />
+<hr />
+2. Your unit test foo seems rather week. <br />
+	a. More unit test are coming. <br />
 
-2. Your unit test foo seems rather week.
-	a. More unit test are coming.
-
-3. Future Plans?
-	a. Some more - More unit tests
-	b. More checks against 'Built in' Types like IClaimsPrincipal.
-	c. Support rule "mix-in" at the XML level instead of just code.
-	D. support a rule paradym with multiple generic<T>
+<hr />
+3. Future Plans? <br />
+	a. Some more - More unit tests <br />
+	b. More checks against 'Built in' Types like IClaimsPrincipal. = DONE! <br />
+	c. Support rule "mix-in" at the XML level instead of just code. thinking about this till <br />
+	D. support a rule paradym with multiple generic<T> - still noddling this one as well. <br />
 
 
-
-Raw rule engine base performance:
-1. rule engine predicate test  - execute this test 10K times in 5.550 seconds.  the test consists of:
-   a. defining a DTO
-   b. defining 4 rules,
-   c. call the rule engine to get the expressions from the defined rules.
-   d. Using fluent syntax to join the expressions together
-   e. Compiling the rule
+<hr />
+Raw rule engine base performance:<br />
+1. rule engine predicate test  - execute this test 10K times in 5.550 seconds.  the test consists of:<br />
+   a. defining a DTO <br />
+   b. defining 4 rules, <br />
+   c. call the rule engine to get the expressions from the defined rules. <br />
+   d. Using fluent syntax to join the expressions together <br />
+   e. Compiling the rule <br />
 
      </section>
     </div>
