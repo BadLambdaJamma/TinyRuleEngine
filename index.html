@@ -13,6 +13,15 @@
           .auto-style1 {
               font-size: large;
           }
+          .auto-style2 {
+              background-color: #FFFF66;
+          }
+          .auto-style3 {
+              background-color: #66FF99;
+          }
+          .auto-style4 {
+              background-color: #66FF66;
+          }
       </style>
   </head>
 
@@ -36,7 +45,37 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
         <section id="main_content" class="inner">
-            <strong><span class="auto-style1">September 2014 Version 1.0</span></strong>:
+            <strong><span class="auto-style1">Tiny rule engine is a rule engine &amp; SDK with functional and useful rule engines implemented for you. (math engines, simple evaulation engines, and rule egine that incorporate claims security as part of rule processing)<br />
+            <br />
+            It allows very complex expression of rules and mathmatical equations using very simpleplistic &quot;recursive descent XML&quot; instead of a full blown language.&nbsp; Consider this for for determining if a vehicle is a Ford Gas Guzzler with the &quot;simple rule engine frokm the SDK:<br />
+            <br />
+<rule name="IsGasGuzzler1" appliesto="TinyRuleEngineTest.CarDTO">
+    <or>
+      <and>
+        <ruleitem membername="Year" operator="GreaterThanOrEqual" targetvalue="2010"/>
+        <ruleitem membername="Make" operator="Equals" targetvalue="Ford"/>
+      </and>
+      <ruleitem membername="Model" operator="StartsWith" targetvalue="Ex"/>
+            <em>&lt;rule name=&quot;I</em><span class="auto-style3"><em>sFordGasGuzzler</em></span><em>&quot; appliesto=&quot;</em><span class="auto-style2"><em>TinyRuleEngineTest.CarDTO</em></span><em>&quot;&gt;<br />
+&nbsp;&nbsp;&nbsp; &lt;or&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;and&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;ruleitem membername=&quot;Year&quot; operator=&quot;LessThanOrEqual&quot; targetvalue=&quot;2000&quot;/&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;ruleitem membername=&quot;Make&quot; operator=&quot;Equals&quot; targetvalue=&quot;Ford&quot;/&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/and&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;and&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;ruleitem membername=&quot;Model&quot; operator=&quot;StartsWith&quot; targetvalue=&quot;Ex&quot;/&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;ruleitem membername=&quot;Make&quot; operator=&quot;Equals&quot; targetvalue=&quot;Ford&quot;/&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/and&gt;<br />
+&nbsp;&nbsp;&nbsp; &lt;/or&gt;<br />
+&nbsp;&lt;/rule&gt;</em></or></rule><br />
+            <br />
+            1. <span class="auto-style2">DTO Type:</span>&nbsp; this is the &quot;namespace&quot; for expresions used in your rules<br />
+            2. <span class="auto-style4">Rule Name: </span>rules can be stored as expression for reuse.<br />
+            <br />
+            <br />
+            <br />
+            <br />
+            September 2014 Version 1.0</span></strong>:
             Latest
             TinyRuleEngine - The simple math engine has been added!
             <hr />
