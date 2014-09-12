@@ -75,28 +75,25 @@
             <strong>1. <span class="auto-style2">DTO Type:</span>&nbsp; this is the &quot;namespace&quot; for expresions used in your rules<br />
             2. <span class="auto-style4">Rule Name: </span>rules can be stored as expression for reuse.<br />
             <br />
-            <br />
-            <br />
-            <br />
             September 2014 Version 1.0</strong></span>:
             Latest
-            TinyRuleEngine - The simple math engine has been added!
+            Tiny Rule Engine SDK - The simple math engine has been added!
             <hr />
 
             <p>
             With the simple math engine 
                 example, almost any mathmatical equation can be dynamically built, converted to an abstract syntax tree, compiled, and evaluated, all at native code speed!</p>
             <p>
-            A Tank Circuits resonant frequency is defined as<br />
+                In electrical engineering a <em>tank circuit</em>&nbsp; has a resonant frequency defined as:</p>
+            <p>
+                <br />
             <img src="images/resonantfrequncy.png" /><br />
-            where L is the inductance in henries, and C is the capacitance in farads.
             </p>
             <p>
-                <strong>A lightweight rule expressed in XML:</strong><br />
+                Where L is the inductance in henries, and C is the capacitance in farads.
             </p>
-            <strong>Simple math engine expression string for the resonant frequency of a "Tank" circuit :<br />
-            <br />
-            &lt;mathexp name=&quot;ResonantFrequencyOfATankCircuit&quot; appliesto=&quot;TinyRuleEngineTest.CircuitDTO&quot;&gt;<br />
+            The simple math engine expresses this as recursive decent as follows:<strong><br />
+            </strong><em>&lt;mathexp name=&quot;ResonantFrequencyOfATankCircuit&quot; appliesto=&quot;TinyRuleEngineTest.CircuitDTO&quot;&gt;<br />
 &nbsp;&nbsp;&nbsp; &lt;round&gt;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;divide&gt;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;value item=&quot;@@1&quot; /&gt;<br />
@@ -115,8 +112,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/multiply&gt;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/divide&gt;<br />
 &nbsp;&nbsp;&nbsp; &lt;/round&gt;<br />
-            &lt;/mathexp&gt;</strong><br />
-            <br />
+            &lt;/mathexp&gt;</em><br />
             <br />
             <strong><span class="auto-style1">Fall 2013 .9 Beta Release: </span></strong>This is a minimal feature rule engine based on conposability and compact size.<br />
 &nbsp;A simple C# rules engine for .NET using Linq Expressions, Lambdas, and Delegates.  small and fast.
