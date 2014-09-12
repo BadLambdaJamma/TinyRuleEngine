@@ -1,0 +1,301 @@
+﻿<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Tiny Rule Engine : A Tiny rule engine in C#  small, fast and extensible">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Tiny Rule Engine</title>
+      <style type="text/css">
+          .auto-style1 {
+              font-size: large;
+          }
+          .auto-style2 {
+              background-color: #FFFF66;
+          }
+          .auto-style3 {
+              background-color: #66FF99;
+          }
+          .auto-style4 {
+              background-color: #66FF66;
+          }
+          .auto-style5 {
+              font-size: medium;
+          }
+      </style>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/BadLambdaJamma/TinyRuleEngine">View on GitHub</a>
+
+          <h1 id="project_title">Tiny Rule Engine </h1>
+          <h2 id="project_tagline">A tiny rule engine and SDK in C#: composable, small, fast and extensible.&nbsp; Roll your own powerful domain specific rule engine or use one of the free rule engines from the SDK.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/BadLambdaJamma/TinyRuleEngine/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/BadLambdaJamma/TinyRuleEngine/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+        <section id="main_content" class="inner">
+            <span class="auto-style1">Tiny rule engine is a rule engine &amp; SDK with functional and useful rule engines implemented for you. (math engines, simple evaulation engines, and rule engines that incorporate claims based security as part of rule processing).&nbsp; Tiny rule engine SDK and samples also illistrate how you would go about building a domain specific rule engine for your application.<br />
+            <br />
+            The Rule Engine and SDK allows very complex expression of rules and math equations using very simple &quot;recursive descent XML&quot; instead of a full blown language.&nbsp; Consider this rule for determining if a vehicle is a Ford Gas Guzzler with the simple rule engine from the SDK:<strong><br />
+            <br />
+<rule name="IsGasGuzzler1" appliesto="TinyRuleEngineTest.CarDTO">
+    <or>
+      <and>
+        <ruleitem membername="Year" operator="GreaterThanOrEqual" targetvalue="2010"/>
+        <ruleitem membername="Make" operator="Equals" targetvalue="Ford"/>
+      </and>
+      <ruleitem membername="Model" operator="StartsWith" targetvalue="Ex"/>
+            </strong></span><span class="auto-style5"><em>&lt;rule name=&quot;I</em><span class="auto-style3"><em>sFordGasGuzzler</em></span><em>&quot; appliesto=&quot;</em><span class="auto-style2"><em>TinyRuleEngineTest.CarDTO</em></span><em>&quot;&gt;<br />
+&nbsp;&nbsp;&nbsp; &lt;or&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;and&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;ruleitem membername=&quot;Year&quot; operator=&quot;LessThanOrEqual&quot; targetvalue=&quot;2000&quot;/&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;ruleitem membername=&quot;Make&quot; operator=&quot;Equals&quot; targetvalue=&quot;Ford&quot;/&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/and&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;and&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;ruleitem membername=&quot;Model&quot; operator=&quot;StartsWith&quot; targetvalue=&quot;Ex&quot;/&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;ruleitem membername=&quot;Make&quot; operator=&quot;Equals&quot; targetvalue=&quot;Ford&quot;/&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/and&gt;<br />
+&nbsp;&nbsp;&nbsp; &lt;/or&gt;<br />
+&nbsp;&lt;/rule&gt;</em></span></or></rule><span class="auto-style1"><br />
+            <br />
+            <strong>1. <span class="auto-style2">DTO Type:</span>&nbsp; this is the &quot;namespace&quot; for expresions used in your rules<br />
+            2. <span class="auto-style4">Rule Name: </span>rules can be stored as expression for reuse.<br />
+            <br />
+            September 2014 Version 1.0</strong></span>:
+            Latest
+            Tiny Rule Engine SDK - The simple math engine has been added!
+            <hr />
+
+            <p>
+            With the simple math engine 
+                example, almost any mathmatical equation can be dynamically built, converted to an abstract syntax tree, compiled, and evaluated, all at native code speed!</p>
+            <p>
+                In electrical engineering a <em>tank circuit</em>&nbsp; has a resonant frequency defined as:</p>
+            <p>
+                <br />
+            <img src="images/resonantfrequncy.png" /><br />
+            </p>
+            <p>
+                Where L is the inductance in henries, and C is the capacitance in farads.
+            </p>
+            The simple math engine expresses this as recursive decent as follows:<strong><br />
+            </strong><em>&lt;mathexp name=&quot;ResonantFrequencyOfATankCircuit&quot; appliesto=&quot;TinyRuleEngineTest.CircuitDTO&quot;&gt;<br />
+&nbsp;&nbsp;&nbsp; &lt;round&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;divide&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;value item=&quot;@@1&quot; /&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;multiply&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;value item=&quot;@@2&quot; /&gt;
+            <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;multiply&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;value item=&quot;@Pi&quot;/&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;sqrt&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;multiply&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;value item=&quot;InductanceInHenries&quot; /&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;value item=&quot;CapacitanceInFarads&quot; /&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/multiply&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/sqrt&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/multiply&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/multiply&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/divide&gt;<br />
+&nbsp;&nbsp;&nbsp; &lt;/round&gt;<br />
+            &lt;/mathexp&gt;</em><br />
+            <br />
+            <strong><span class="auto-style1">Fall 2013 .9 Beta Release: </span></strong>This is a minimal feature rule engine based on conposability and compact size.<br />
+&nbsp;A simple C# rules engine for .NET using Linq Expressions, Lambdas, and Delegates.  small and fast.
+
+            <br />
+            1.  <strong>Supports a Code first model, or an all Code approach, to building, compiling and executing rules as discrete steps. </strong>
+            <br />
+            2.  <strong>Supports XML Driven rules with deep logical nesting. </strong>
+            <br />
+            3.<strong>  Supports Mix of Code and XML rules with logical operators and fluent syntax </strong>
+
+
+            <br />
+            <br />
+            <strong>Supported Engines:</strong><br />
+&nbsp;&nbsp;&nbsp;
+
+            1. <strong>RuleEngine</strong> - A Simple rule engine that evaluates rules against a given type (DTO type)
+            <br />
+&nbsp;&nbsp;&nbsp; 2. <strong>IdentityRuleEngine</strong> - Included support for making IClaimsPrincipal claim checks mixed with DTO rules.
+            <br />
+&nbsp;&nbsp;&nbsp; 3. <strong>TuppleRuleEngine</strong> - Supports Rules compiled against two DTO types (e.g. Car and SalesPerson )
+            <br />
+&nbsp;&nbsp;&nbsp; 4. <strong>IdentityTuppleRuleEngine</strong> - Support two DTO types (.e.g. car and Saleperson) +  IClaimsPrincipal<br />
+            <br />
+<hr />
+            Licensed as Open Source software under the Apache License.
+            Please contact me with bugs, improvements or bitcoins - jonathananewell@hotmail.com
+<hr />
+            Rule reader uses Predicate Builder to allow you to Join rule expressions in Code.
+
+<hr />
+            Each type of rule engine is illistrated with unit tests:<br />
+
+            1. <strong>RuleEngine</strong> - A rule engine that evaluates against a single type defined by the developer or rule writer <br />
+            2. <strong>IdentityRuleEngine</strong> - A rule engine that supports claims principal checks mixed in with a generic type <br />
+            3. <strong>TuppleRuleEngine</strong> - A rule engine that evaulates against two types defined by the developer or rule writer <br />
+            4. <strong>IdentityTuppleRuleEngine</strong> - A Rule Engine that evaluates against two types and supports claims pincipal claim checks <br />
+
+            <hr />
+            Here are the main features:<br />
+            1. <strong>Composable: </strong>rules are built from small strings.<br />
+
+            2. <strong>Pure code model supported</strong>:  define, compile and execute rules in code.<br />
+            3. <strong>XML based model</strong>: Load complex rule graphs with deep cyclomatic logic from simple Xml files.<br />
+            4. <strong>Hybrid model:</strong>  mix-in your code and XML rules anyway you want with any logical operators. <br />
+            5. <strong>Pluggable rule readers.</strong>  Define your own rule language or variation without impacting consuming code. <br />
+            6. <strong>Performant</strong> - Uses .NET expression trees to create fast executeable code on the fly. <br />
+
+
+            <hr />
+            <strong>Supported join operators:</strong>
+            <hr />
+            and
+            or
+            xor
+
+            <hr />
+            <strong>Supported comparison Operators</strong>
+            <hr />
+            string properties:<br />
+
+            Equals<br />
+            Startswith <br />
+            EndsWith <br />
+            Contains <br />
+
+            Numeric properties: <br />
+            Equals <br />
+            Lessthan <br />
+            GreaterThan <br />
+            LessthanOrEqual <br />
+            GreaterthanOrEqual <br />
+
+            <hr />
+            Simple rule: 1 rule shown
+            <hr />
+            <rules>
+                <rule name="IsApprover" appliesto="UnitTestProject1.User">
+                    <ruleitem membername="Age" operator="Equals" targetvalue="22" />
+                    <rule>
+            </rules>
+            <hr />
+            Complex rule: 2 rules shown
+            <hr />
+            <rules>
+                <rule name="IsApprover" appliesto="UnitTestProject1.User">
+                    <and>
+                        <and>
+                            <ruleitem membername="Age" operator="Equals" targetvalue="21" />
+                            <ruleitem membername="Name" operator="StartsWith" targetvalue="on" />
+                        </and>
+                        <and>
+                            <ruleitem membername="Age" operator="Equals" targetvalue="22" />
+                            <ruleitem membername="Name" operator="StartsWith" targetvalue="Jon" />
+                        </and>
+                    </and>
+                </rule>
+                <rule name="IsApproverSuperUser" appliesto="UnitTestProject1.User">
+                    <ruleitem membername="Age" operator="Equals" targetvalue="22" />
+                </rule>
+            </rules>
+            <hr />
+            Complex rule: 3 -Identity rules shown with a group SID claim (any claim including role may be used) <br />
+            member name is set to the special value of @user <br />
+            operator is the claimType <br />
+            TargetValue is the claim value. <br />
+
+            <hr />
+            Claims on the Principal are processed with this lambda:
+
+            Expression<func<IClaimsPrincipal,string, string, bool>> HasClaimTest
+	= (p, ct, cv) => p.Identities.Any(s => s.Claims.Any(c => c.ClaimType == ct &&  c.ValueType == ClaimValueTypes.String && c.Value == cv));
+
+	p = the claim principal
+	ct = the claim type
+	cv = the claim value
+
+<hr />
+<rules>
+  <rule name="IsApprover" appliesto="TinyRuleEngineTest.User">
+    <or>
+      <and>
+        <ruleitem membername="@User" operator="http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid" targetvalue="S-1-5-21-2493390151-660934664-2262481224-513" />
+        <ruleitem membername="Name" operator="StartsWith" targetvalue="Jon"/>
+      </and>
+      <and>
+          <ruleitem membername="@User" operator="http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid" targetvalue="S-1-5-21-2493390151-660934664-2262481224-513" />
+          <ruleitem membername="Name" operator="StartsWith" targetvalue="on"/>
+      </and>
+    </or>
+  </rule>
+</rules>
+
+<hr />
+FAQuestions
+<hr />
+1. How come rule builder does not just call compile for me? <br />
+
+    Rule builder assumes a few things when it comes to calling compile: <br />
+
+	a. The developer knows best when to call compile.  Compiled rules should usually be backed by <br />
+	   a lazy loaded cache to avoid calling compile. <br />
+
+	b. Compile will sometimes invoke reflection, sometimes not.  For any operator but 'Equals' on a string comparison, <br />
+	   reflection will be used to build the expression.  None of the numeric operators invoke reflection when compile <br />
+	   is called.  None of the claims based rules invoke reflection. <br />
+
+	c. mix-ins are only suppoorted against expressions not compiled rules.  you can use mix-ins all you want and then <br />
+	   you call compile on the newly composed rule. <br />
+<hr />
+2. Your unit test foo seems rather week. <br />
+	a. More unit test are coming. <br />
+
+<hr />
+3. Future Plans? <br />
+	a. Some more - More unit tests <br />
+	b. More checks against 'Built in' Types like IClaimsPrincipal. = DONE! <br />
+	c. Support rule "mix-in" at the XML level instead of just code. thinking about this till <br />
+	D. support a rule paradym with multiple generic<T> - still noddling this one as well. <br />
+
+
+<hr />
+Raw rule engine base performance:<br />
+1. rule engine predicate test  - execute this test 10K times in 5.550 seconds.  the test consists of:<br />
+   a. defining a DTO <br />
+   b. defining 4 rules, <br />
+   c. call the rule engine to get the expressions from the defined rules. <br />
+   d. Using fluent syntax to join the expressions together <br />
+   e. Compiling the rule <br />
+
+     </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Tinyruleengine maintained by <a href="https://github.com/BadLambdaJamma">BadLambdaJamma</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
