@@ -1280,6 +1280,7 @@
     <Content Include="login.html" />
     <Content Include="maps_google.html" />
     <Content Include="maps_vector.html" />
+    <Content Include="Octocat.png" />
     <Content Include="portlet_draggable.html" />
     <Content Include="portlet_general.html" />
     <Content Include="stylesheets\pygment_trac.css" />
