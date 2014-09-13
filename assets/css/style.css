@@ -1238,7 +1238,8 @@ Portlets
 
 .portlet-body {
   clear: both;  
-  padding: 0;  
+  padding: 0;
+    width: 891px;
 }
 
 .portlet-body.light-blue, .portlet.light-blue {
