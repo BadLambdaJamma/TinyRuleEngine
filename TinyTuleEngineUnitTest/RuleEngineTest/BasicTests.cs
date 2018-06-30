@@ -3,11 +3,12 @@ using System.Linq.Expressions;
 using System.Xml;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TinyRuleEngine.Engines;
+using System.IO;
 
 namespace TinyRuleEngineTest.RuleEngineTest
 {
     [TestClass]
-    public class BasicTests
+    public class BasicTests: BaseUnitTest
     {
         /// <summary>
         /// this test demostrates the basic functions of the rule engine without a rule xml file.
@@ -149,7 +150,7 @@ namespace TinyRuleEngineTest.RuleEngineTest
             };
             var re = new RuleEngine();
             var xd = new XmlDocument();
-            xd.Load(@"C:\development\RuleEngine\TinyTuleEngineUnitTest\RuleEngineTest\RuleSetBasic.xml");
+            xd.Load(Path.Combine(this.testFilePath,@"RuleEngineTest\RuleSetBasic.xml"));
             re.LoadRulesFromElementList<CarDTO>(xd,"/rules/rule");
             Func<CarDTO, bool> isGasGuzzler = re.GetRule<CarDTO>("IsGasGuzzler").Compile();
             Assert.AreEqual(isGasGuzzler(car),true);

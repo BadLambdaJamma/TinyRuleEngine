@@ -1,17 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TinyRuleEngine.Engines;
+using System.IO;
 
 namespace TinyRuleEngineTest.SimpleMath
 {
     [TestClass]
-    public class SimpleMathUnitTest
+    public class SimpleMathUnitTest : BaseUnitTest
     {
+
         /// <summary>
         /// demonstrates the ability of the rule engine to load a complex rule graph from an Xml file
         /// </summary>
@@ -31,7 +29,7 @@ namespace TinyRuleEngineTest.SimpleMath
             };
             var math = new SimpleMathEngine();
             var xd = new XmlDocument();
-            xd.Load(@"C:\development\RuleEngine\TinyTuleEngineUnitTest\SimpleMath\SimpleMath.xml");
+            xd.Load(Path.Combine(this.testFilePath,@"SimpleMath\SimpleMath.xml"));
             math.LoadRulesFromElementList<CarDTO>(xd, "/mathexps/mathexp");
             Func<CarDTO, double> check = math.GetRule<CarDTO>("AskingMinusSellingPlusComission").Compile();
             var result = check(car);
@@ -40,7 +38,7 @@ namespace TinyRuleEngineTest.SimpleMath
     }
 
     [TestClass]
-    public class CosMathUnitTest
+    public class CosMathUnitTest : BaseUnitTest
     {
         /// <summary>
         /// demonstrates the ability of the rule engine to load a complex rule graph from an Xml file
@@ -61,7 +59,7 @@ namespace TinyRuleEngineTest.SimpleMath
             };
             var math = new SimpleMathEngine();
             var xd = new XmlDocument();
-            xd.Load(@"C:\development\RuleEngine\TinyTuleEngineUnitTest\SimpleMath\SimpleMath.xml");
+            xd.Load(Path.Combine(this.testFilePath,@"SimpleMath\SimpleMath.xml"));
             math.LoadRulesFromElementList<CarDTO>(xd, "/mathexps/mathexp");
             Func<CarDTO, double> check = math.GetRule<CarDTO>("costest").Compile();
             var result = check(car);
@@ -69,7 +67,7 @@ namespace TinyRuleEngineTest.SimpleMath
     }
 
     [TestClass]
-    public class PiMathUnitTest
+    public class PiMathUnitTest :BaseUnitTest
     {
         /// <summary>
         /// demonstrates the ability of the rule engine to load a complex rule graph from an Xml file
@@ -90,7 +88,7 @@ namespace TinyRuleEngineTest.SimpleMath
             };
             var math = new SimpleMathEngine();
             var xd = new XmlDocument();
-            xd.Load(@"C:\development\RuleEngine\TinyTuleEngineUnitTest\SimpleMath\SimpleMath.xml");
+            xd.Load(Path.Combine(this.testFilePath,@"SimpleMath\SimpleMath.xml"));
             math.LoadRulesFromElementList<CarDTO>(xd, "/mathexps/mathexp");
             Func<CarDTO, double> check = math.GetRule<CarDTO>("pitest").Compile();
             var result = check(car);
@@ -99,7 +97,7 @@ namespace TinyRuleEngineTest.SimpleMath
 
 
     [TestClass]
-    public class LiteralMathUnitTest
+    public class LiteralMathUnitTest :BaseUnitTest
     {
         /// <summary>
         /// demonstrates the ability of the rule engine to load a complex rule graph from an Xml file
@@ -120,7 +118,7 @@ namespace TinyRuleEngineTest.SimpleMath
             };
             var math = new SimpleMathEngine();
             var xd = new XmlDocument();
-            xd.Load(@"C:\development\RuleEngine\TinyTuleEngineUnitTest\SimpleMath\SimpleMath.xml");
+            xd.Load(Path.Combine(this.testFilePath,@"SimpleMath\SimpleMath.xml"));
             math.LoadRulesFromElementList<CarDTO>(xd, "/mathexps/mathexp");
             Func<CarDTO, double> check = math.GetRule<CarDTO>("literal").Compile();
             var result = check(car);

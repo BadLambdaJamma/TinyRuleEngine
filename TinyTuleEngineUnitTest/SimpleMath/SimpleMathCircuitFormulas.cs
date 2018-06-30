@@ -10,7 +10,7 @@ using System.Runtime.Serialization;
 namespace TinyRuleEngineTest.SimpleMath
 {
     [TestClass]
-    public class CircuitMathUnitTest
+    public class CircuitMathUnitTest : BaseUnitTest
     {
         /// <summary>
         /// Demonstrates the math engine calculating the Resonant Frequncy of a Tank circuit
@@ -39,11 +39,9 @@ namespace TinyRuleEngineTest.SimpleMath
             var sr = new StreamReader(m);
             var resulta = sr.ReadToEnd();
 
-
-          
             var math = new SimpleMathEngine();
             var xd = new XmlDocument();
-            xd.Load(@"C:\development\RuleEngine\TinyTuleEngineUnitTest\SimpleMath\SimpleMath.xml");
+            xd.Load(Path.Combine(this.testFilePath,@"SimpleMath\SimpleMath.xml"));
             math.LoadRulesFromElementList<CircuitDTO>(xd, "/mathexps/mathexp");
             Func<CircuitDTO, double> resonantFrequencyOfATankCircuit = math.GetRule<CircuitDTO>("ResonantFrequencyOfATankCircuit").Compile();
             var result = resonantFrequencyOfATankCircuit(circuit);

@@ -3,15 +3,13 @@ using System.Linq.Expressions;
 using System.Xml;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TinyRuleEngine.Engines;
+using System.IO;
 
 namespace TinyRuleEngineTest.TuppleRuleEngineTest
 {
     [TestClass]
-    public class BasicTestTupples
+    public class BasicTestTupplesb : BaseUnitTest
     {
-        /// <summary>
-        /// this test demostrates the basic functions of the identity (claimsprincipal) rule engine without a rule xml file.
-        /// </summary>
         [TestMethod]
         public void TuplesBasicOperatorTest()
         {
@@ -77,14 +75,10 @@ namespace TinyRuleEngineTest.TuppleRuleEngineTest
             // Load all rules applied to the user type.
             var re = new TupleRuleEngine();
             var xd = new XmlDocument();
-            xd.Load(@"C:\development\RuleEngine\TinyTuleEngineUnitTest\TupleRuleEngineTest\RuleSetTuple.xml");
+            xd.Load(Path.Combine(this.testFilePath, @"TupleRuleEngineTest\RuleSetTuple.xml"));
             re.LoadRulesFromElementList<CarDTO,SalesPersonDTO>(xd, "/rules/rule");
-
             Func<CarDTO, SalesPersonDTO, bool> fordSaleApproverWithSalesPersonInfo = re.GetRule<CarDTO,SalesPersonDTO>("FordSaleApproverWithSalesPersonInfo").Compile();
             Assert.AreEqual(true, fordSaleApproverWithSalesPersonInfo(car, salesperson));
-
         }
-
-
     }
 }

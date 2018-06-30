@@ -39,12 +39,11 @@
     <Reference Include="MathNet.Numerics.IO">
       <HintPath>..\packages\MathNet.Numerics.2.6.2\lib\net40\MathNet.Numerics.IO.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Program Files\Reference Assemblies\Microsoft\Windows Identity Foundation\v3.5\Microsoft.IdentityModel.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Selectors" />
+    <Reference Include="System.identitymodel.services" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
@@ -52,12 +51,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Engines\IdentityRuleEngine.cs" />
-    <Compile Include="Engines\IdentityTupleRuleEngine.cs" />
     <Compile Include="Engines\MathValue.cs" />
     <Compile Include="Engines\SimpleMathEngine.cs" />
-    <Compile Include="Readers\IdentityTupleRuleReader.cs" />
-    <Compile Include="Readers\IndentityRuleReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Engines\Rule.cs" />
     <Compile Include="Engines\RuleEngine.cs" />
